@@ -1,4 +1,4 @@
-import { User, Cpu, Globe, Target, Lightbulb } from 'lucide-react';
+import { User, Cpu, Globe } from 'lucide-react';
 
 export default function Home() {
   return (
