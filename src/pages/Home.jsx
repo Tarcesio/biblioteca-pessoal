@@ -10,7 +10,7 @@ export default function Home() {
         Bem-vindo ao ponto de partida do sistema. Use o menu no topo para navegar.
       </p>
 
-      <div className="group relative w-full max-w-xl bg-zinc-900/50 border border-zinc-800 p-8 rounded-2xl text-left shadow-2xl transition-all duration-300 hover:scale-[1.01] hover:border-emerald-500/30">
+      <section className="group relative w-full max-w-xl bg-zinc-900/50 border border-zinc-800 p-8 rounded-2xl text-left shadow-2xl transition-all duration-300 hover:scale-[1.01] hover:border-emerald-500/30">
         <div className="absolute top-0 left-0 w-1.5 h-full bg-emerald-500 rounded-l-2xl"></div>
 
         <div className="flex items-center gap-3 mb-6">
@@ -32,7 +32,11 @@ export default function Home() {
             <p><strong className="text-zinc-100">Interesses:</strong> Programação e Web Design</p>
           </div>
         </div>
-      </div>
+      </section>
+
+      <section>
+        <img src="../assets/signature-image.png" alt="assinatura-imagem" className="rounded-full border-2 border-emerald-500 shadow-lg" />
+      </section>
 
       <blockquote className="mt-12 px-8 py-4 bg-blue-600/10 border border-blue-500/20 text-blue-400 rounded-xl italic">
         “Transformando ideias em código, um projeto de cada vez.”
