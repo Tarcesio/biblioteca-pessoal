@@ -55,7 +55,7 @@ export default function TodoListPage(){
 
   return(
     <div className="projects-menu w-screen h-screen bg-slate-500 flex justify-center p-6">
-      <div className="w-[500px] space-y-4">
+      <div className="w-125 space-y-4">
 
         <Title>Gerenciador de Tarefas</Title>
 
