@@ -13,30 +13,46 @@ export default function Header() {
             id: 1,
             name: "HOME",
             subs: [
-                { label: "Submenu 1", action: () => alert("Submenu 1") },
-                { label: "Submenu 2", action: () => alert("Submenu 2") },
-                { label: "Submenu 3", action: () => alert("Submenu 3") },
+                { 
+                    label: "Home Page",
+                    action: () => navigate("/") },
+                { 
+                    label: "Submenu 2", 
+                    action: () => alert("Submenu 2") },
+                {   
+                    label: "Submenu 3", 
+                    action: () => alert("Submenu 3") },
             ],
         },
         {
             id: 2,
             name: "PROJETOS",
             subs: [
-                { label: "Prompt Creator", action: () => setIsPromptOpen(true) },
+                { 
+                    label: "Prompt Creator", 
+                    action: () => setIsPromptOpen(true) },
                 {
                     label: "To-Do List",
                     action: () => navigate("/todo-list"),
                 },
-                { label: "Submenu 6", action: () => alert("Submenu 6") },
+                { 
+                    label: "Submenu 6", 
+                    action: () => alert("Submenu 6") },
             ],
         },
         {
             id: 3,
             name: "SOBRE",
             subs: [
-                { label: "Submenu 7", action: () => alert("Submenu 7") },
-                { label: "Submenu 8", action: () => alert("Submenu 8") },
-                { label: "Submenu 9", action: () => alert("Submenu 9") },
+                { 
+                    label: "Submenu 7", 
+                    action: () => alert("Submenu 7") },
+                { 
+                    label: "Submenu 8", 
+                    action: () => alert("Submenu 8") },
+                { 
+                    label: "Submenu 9", 
+                    action: () => alert("Submenu 9") },
             ],
         },
     ];
