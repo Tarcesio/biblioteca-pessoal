@@ -38,10 +38,13 @@ export default function Navigator({ menuData }) {
         )
       })}
 
-      /* IMAGEM DE LOGIN QUE FICA CINZA AO ESTAR DESLOGADO 
+      
+         {/**
+            IMAGEM DE LOGIN QUE FICA CINZA AO ESTAR DESLOGADO 
           realizarei testes utilizando um formulário simples.
-          resultado das informações serão contidas no card de inicio.
-      */
+          resultado das informações serão contidas no card de inicio. 
+          */}
+      
 
     </nav>
   )
