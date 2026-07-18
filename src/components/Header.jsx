@@ -36,8 +36,8 @@ export default function Header() {
                     action: () => navigate("/todo-list"),
                 },
                 { 
-                    label: "Submenu 6", 
-                    action: () => alert("Submenu 6") },
+                    label: "Interador de Cores", 
+                    action: () => navigate("/interactive-colors") },
             ],
         },
         {
