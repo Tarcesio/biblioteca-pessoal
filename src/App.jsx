@@ -3,7 +3,6 @@ import Header from './components/Header'
 import Main from './components/Main'
 import TodoListPage from './pages/todo-list/TodoListPage'
 import InteractiveColors from './pages/interactiveColors/interactiveColors'
-// 1. Importe a página de detalhes com o caminho correto da árvore:
 import TaskPage from './pages/todo-list/pages/TaskPage' 
 import { Routes, Route } from 'react-router-dom'
 import NotFound from './pages/NotFound'
