@@ -48,11 +48,11 @@ export default function Header() {
                     label: "Submenu 7", 
                     action: () => alert("Submenu 7") },
                 { 
-                    label: "Submenu 8", 
-                    action: () => alert("Submenu 8") },
+                    label: "Links", 
+                    action: () => navigate("/links") },
                 { 
-                    label: "Submenu 9", 
-                    action: () => alert("Submenu 9") },
+                    label: "About", 
+                    action: () => navigate("/about") },
             ],
         },
     ];
