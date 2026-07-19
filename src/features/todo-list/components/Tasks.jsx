@@ -37,7 +37,7 @@ function Tasks({ tasks, onTaskClick, onDeleteTaskClick }) {
           {/* Botão de Detalhes - Usa classes extras para customizar largura em linha */}
           <Button
             onClick={() => onSeeDetailsClick(task)}
-            className="!w-auto p-2.5 bg-zinc-800 border-zinc-700 hover:bg-zinc-700 text-zinc-300"
+            className="w-auto! p-2.5 bg-zinc-800 border-zinc-700 hover:bg-zinc-700 text-zinc-300"
           >
             <ChevronRightIcon className="w-4 h-4" />
           </Button>
@@ -45,7 +45,7 @@ function Tasks({ tasks, onTaskClick, onDeleteTaskClick }) {
           {/* Botão de Deletar - Variante destrutiva sutil em linha */}
           <Button
             onClick={() => onDeleteTaskClick(task.id)}
-            className="!w-auto p-2.5 bg-zinc-800 border-zinc-700 hover:border-red-900 hover:bg-red-950/30 hover:text-red-400 text-zinc-400"
+            className="w-auto! p-2.5 bg-zinc-800 border-zinc-700 hover:border-red-900 hover:bg-red-950/30 hover:text-red-400 text-zinc-400"
           >
             <Trash2Icon className="w-4 h-4" />
           </Button>
