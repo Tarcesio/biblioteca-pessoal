@@ -1,11 +1,8 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Navigator from "./Navigator";
-import Window from "./Window";
-import PromptCreator from "@/features/prompt-creator/PromptCreator";
+import Navigator from "@/components/Navigator";
 
 export default function Header() {
-    const [isPromptOpen, setIsPromptOpen] = useState(false);
     const navigate = useNavigate();
 
     const menuData = [
@@ -15,13 +12,16 @@ export default function Header() {
             subs: [
                 { 
                     label: "Home Page",
-                    action: () => navigate("/") },
+                    action: () => navigate("/") 
+                },
                 { 
                     label: "Submenu 2", 
-                    action: () => alert("Submenu 2") },
+                    action: () => alert("Submenu 2") 
+                },
                 {   
                     label: "Submenu 3", 
-                    action: () => alert("Submenu 3") },
+                    action: () => alert("Submenu 3") 
+                },
             ],
         },
         {
@@ -30,14 +30,16 @@ export default function Header() {
             subs: [
                 { 
                     label: "Prompt Creator", 
-                    action: () => setIsPromptOpen(true) },
+                    action: () => navigate("/prompt-creator") 
+                },
                 {
                     label: "To-Do List",
                     action: () => navigate("/todo-list"),
                 },
                 { 
                     label: "Interador de Cores", 
-                    action: () => navigate("/interactive-colors") },
+                    action: () => navigate("/interactive-colors") 
+                },
             ],
         },
         {
@@ -46,29 +48,26 @@ export default function Header() {
             subs: [
                 { 
                     label: "Submenu 7", 
-                    action: () => alert("Submenu 7") },
+                    action: () => alert("Submenu 7") 
+                },
                 { 
                     label: "Links", 
-                    action: () => navigate("/links") },
+                    action: () => navigate("/links") 
+                },
                 { 
                     label: "About", 
-                    action: () => navigate("/about") },
+                    action: () => navigate("/about") 
+                },
             ],
         },
     ];
 
     return (
         <>
-            <header className="flex items-center justify-between w-full h-20 bg-zinc-900 text-white px-8 border-b border-zinc-800 relative z-40">
-                <h1 className="text-2xl font-bold tracking-tight">Biblioteca</h1>
+            <header className="flex items-center justify-between w-full h-20 bg-zinc-900 text-zinc-100 px-4 sm:px-8 border-b border-zinc-800 relative z-50">
+                <h1 className="text-xl sm:text-2xl font-bold tracking-tight">Biblioteca</h1>
                 <Navigator menuData={menuData} />
             </header>
-
-            {isPromptOpen && (
-                <Window title="Prompt Creator" onClose={() => setIsPromptOpen(false)}>
-                    <PromptCreator />
-                </Window>
-            )}
         </>
     );
 }
