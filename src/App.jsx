@@ -10,6 +10,7 @@ import TaskPage from '@/pages/TaskPage';
 import InteractiveColorsPage from '@/pages/InteractiveColorsPage';
 import LinksPage from '@/pages/LinksPage';
 import AboutPage from '@/pages/AboutPage';
+import PromptCreatorPage from '@/pages/PromptCreatorPage';
 import NotFoundPage from '@/pages/NotFoundPage';
 
 export default function App() {
@@ -21,6 +22,7 @@ export default function App() {
       {/* Sistema de Roteamento Dinâmico */}
       <Routes>
         <Route path="/*" element={<Main />} />
+        <Route path="/prompt-creator" element={<PromptCreatorPage />} />
         <Route path="/todo-list" element={<TodoListPage />} />
         <Route path="/todo-list/task" element={<TaskPage />} />
         <Route path="/interactive-colors" element={<InteractiveColorsPage />} />

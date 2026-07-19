@@ -3,11 +3,16 @@ import Title from "./Title";
 import AddTask from "./AddTask";
 import Tasks from "./Tasks";
 
-export function TodoContainer() {
+export default function TodoContainer() {
   // Inicializa o estado com os dados do localStorage ou um array vazio
-  const [tasks, setTasks] = useState(
-    JSON.parse(localStorage.getItem("tasks")) || []
-  );
+  const [tasks, setTasks] = useState(() => {
+    try {
+      const savedTasks = localStorage.getItem("tasks");
+      return savedTasks ? JSON.parse(savedTasks) : [];
+    } catch {
+      return [];
+    }
+  });
 
   // Efeito colateral para persistência automática de dados
   useEffect(() => {
@@ -34,7 +39,7 @@ export function TodoContainer() {
 
   function onAddTaskSubmit(title, description) {
     const newTask = {
-      id: Math.random(),
+      id: crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(),
       title,
       description,
       isCompleted: false,
@@ -43,7 +48,7 @@ export function TodoContainer() {
   }
 
   return (
-    <div className="w-full max-w-md mx-auto space-y-4 px-4 sm:px-0">
+    <div className="w-full max-w-md mx-auto space-y-4 py-2 sm:py-4">
       <Title>Gerenciador de Tarefas</Title>
       <AddTask onAddTaskSubmit={onAddTaskSubmit} />
       <Tasks 
