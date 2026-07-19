@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navigator from "./Navigator";
 import Window from "./Window";
-import PromptCreator from "./PromptCreator";
+import PromptCreator from "@/features/prompt-creator/PromptCreator";
 
 export default function Header() {
     const [isPromptOpen, setIsPromptOpen] = useState(false);
