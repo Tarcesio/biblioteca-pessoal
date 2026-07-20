@@ -65,7 +65,11 @@ Compila e otimiza o ecossistema gerando os assets estáticos indexados na pasta 
 
 O projeto adota rigorosamente as diretivas do Versionamento Semântico (SemVer) através do fluxo de ramificação técnica do Gitflow:
 
-*   **v1.1.0 (Versão Atual):** 
+*   **v1.2.0 (Versão Atual):** 
+    *   Injeção do ecossistema de Quiz das Raposas isolado em `src/features/fox-quiz/`.
+    *   Arquitetura de dados exclusiva via `foxConstants.js` e encapsulamento de mídias em subpastas locais de ativos.
+    *   Mapeamento de rota limpa em `src/pages/FoxPage.jsx` com injeção reativa no menu global de navegação.
+*   **v1.1.0** 
     *   Migração total do ecossistema de visualização para o paradigma Mobile-First.
     *   Substituição do modal flutuante rígido por uma arquitetura elástica de rota em `PromptCreatorPage.jsx`.
     *   Implementação do componente `Navigator.jsx` em formato de Menu Hambúrguer com Sanfona reativa.
