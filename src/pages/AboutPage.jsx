@@ -20,7 +20,7 @@ export default function AboutPage() {
         <div className="p-4 bg-zinc-900 border border-zinc-800 border-l-4 border-l-blue-500 rounded-xl shadow-md flex flex-wrap items-center gap-2 justify-between sm:justify-start">
           <span className="text-zinc-300 text-sm sm:text-base">Status do Sistema:</span>
           <span className="text-blue-400 font-mono font-medium bg-blue-950/30 px-2 py-0.5 rounded border border-blue-900/20 text-xs sm:text-sm">
-            v1.0.0-stable
+            v1.1.0
           </span>
         </div>
       </div>
