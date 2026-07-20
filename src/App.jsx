@@ -11,6 +11,7 @@ import InteractiveColorsPage from '@/pages/InteractiveColorsPage';
 import LinksPage from '@/pages/LinksPage';
 import AboutPage from '@/pages/AboutPage';
 import PromptCreatorPage from '@/pages/PromptCreatorPage';
+import FoxPage from '@/pages/FoxPage';
 import NotFoundPage from '@/pages/NotFoundPage';
 
 export default function App() {
@@ -28,6 +29,7 @@ export default function App() {
         <Route path="/interactive-colors" element={<InteractiveColorsPage />} />
         <Route path="/links" element={<LinksPage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/fox-quiz" element={<FoxPage />} />
 
         {/* Rota de fallback para páginas não encontradas (404) */}
         <Route path="*" element={<NotFoundPage />} />
