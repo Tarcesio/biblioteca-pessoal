@@ -40,6 +40,10 @@ export default function Header() {
                     label: "Interador de Cores", 
                     action: () => navigate("/interactive-colors") 
                 },
+                { 
+                    label: "Quiz Raposas", 
+                    action: () => navigate("/fox-quiz") 
+                },
             ],
         },
         {
