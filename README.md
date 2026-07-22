@@ -18,9 +18,16 @@ Este ecossistema centraliza ferramentas de produtividade, laboratórios de engen
 ### 🧱 Componentes Globais (`src/components/`)
 *   `Header.jsx`: Controla o topo fixo do sistema e o dicionário de dados central de navegação (`menuData`).
 *   `Navigator.jsx`: Menu responsivo dinâmico. Atua como barra horizontal estruturada em desktops (`md:`) e transforma-se automaticamente em **Menu Hambúrguer com Sanfona (Accordion)** em dispositivos móveis.
+*   `ui/Card.jsx`: Subcomponentes atômicos nomeados (`CardHeader`, `CardTitle`, `CardContent`) que ditam e blindam a identidade visual esmeralda/escuro do sistema.
 *   `ui/ProfileCard.jsx`: Componente isolado extraído da página inicial para exibir dados de perfil de forma coesa.
 
 ### 🗂️ Módulos de Negócio (`src/features/`)
+*   **Módulo Sala de Aula (Classroom):**
+    *   `ClassroomMenu.jsx`: Menu dinâmico mobile-first que consome e converte a matriz de dados em seletores de disciplinas via query string.
+    *   `ClassroomFeed.jsx`: Distribuidor centralizado que gerencia o chaveamento de layout adaptativo por abas textuais minimalistas (Notas vs Calculadora).
+    *   `classroomData.js`: Banco de dados acadêmico estruturado em arrays para blindagem contra quebras de texto lineares.
+    *   `widgets/`: Subdiretório que isola os laboratórios vetoriais gráficos e simulações matemáticas interativas (`Calculo1Widget`, `Calculo2Widget`, `FisicaWidget`).
+    *   `calculators/`: Motores computacionais reativos de processamento algébrico e simbólico com renderização LaTeX de alta fidelidade visual (`Calculo1Calculator`, `Calculo2Calculator`).
 *   **Módulo Todo-List:**
     *   `TodoContainer.jsx`: Inteligência de estado local, persistência automática de dados no `localStorage` e inicialização preguiçosa (*lazy initialization*).
     *   `AddTask.jsx`: Formulário semântico com captura de gatilho do teclado ("Enter" / "Ir") e validação visual de erro em substituição ao `alert()` nativo do navegador.
@@ -30,6 +37,7 @@ Este ecossistema centraliza ferramentas de produtividade, laboratórios de engen
 
 ### 📄 Páginas do Ecossistema (`src/pages/`)
 *   `Home.jsx`: Ponto de entrada limpo exibindo o `ProfileCard` e a assinatura vetorial com dimensões responsivas.
+*   `ClassroomPage.jsx`: Rota enxuta que monitora os parâmetros dinâmicos de URL para alternância entre o painel de matérias e o feed acadêmico.
 *   `PromptCreatorPage.jsx`: Nova página que envelopa o criador de prompts, eliminando dependências de modais de arrasto flutuantes que causavam concorrência de DOM no mobile.
 *   `InteractiveColorsPage.jsx`: Laboratório cromático para tradução instantânea matemática entre os modelos RGB e HSL.
 *   `LinksPage.jsx`: Agregador fluido de conexões sociais com animações de deslocamento lateral calibradas exclusivamente para mouse (`md:hover`).
@@ -65,7 +73,12 @@ Compila e otimiza o ecossistema gerando os assets estáticos indexados na pasta 
 
 O projeto adota rigorosamente as diretivas do Versionamento Semântico (SemVer) através do fluxo de ramificação técnica do Gitflow:
 
-*   **v1.2.0 (Versão Atual):** 
+*   **v1.3.0 (Versão Atual):** 
+    *   Injeção do ecossistema de Sala de Aula (`Classroom`) focado em Engenharia de Computação.
+    *   Implementação de arquitetura baseada em subpastas de utilitários isolados (`widgets/` e `calculators/`).
+    *   Acoplamento estável dos motores computacionais de cálculo algébrico e aproximações analíticas via `mathjs` e `react-katex`.
+    *   Introdução de controle por Toggle de Abas Minimalista no cabeçalho do feed.
+*   **v1.2.0:** 
     *   Injeção do ecossistema de Quiz das Raposas isolado em `src/features/fox-quiz/`.
     *   Arquitetura de dados exclusiva via `foxConstants.js` e encapsulamento de mídias em subpastas locais de ativos.
     *   Mapeamento de rota limpa em `src/pages/FoxPage.jsx` com injeção reativa no menu global de navegação.
