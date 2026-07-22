@@ -35,7 +35,7 @@ export default function ClassroomFeed({ onBack }) {
     <div className="w-full max-w-5xl mx-auto space-y-6">
       {/* Cabeçalho da Matéria - Otimizado para Mobile-First */}
 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-zinc-800/50 pb-4 w-full">
-  <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-zinc-100 uppercase tracking-wide break-words max-w-full">
+  <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-zinc-100 uppercase tracking-wide wrap-break-word max-w-full">
     {currentSubject.subject}
   </h1>
   <Button onClick={onBack} className="text-xs h-8 px-4 w-full sm:w-auto shrink-0">
@@ -48,6 +48,7 @@ export default function ClassroomFeed({ onBack }) {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
         
         {/* COLUNA DA ESQUERDA (Tópicos de Matéria Reais) */}
+        
         <div className="md:col-span-2 space-y-6">
           {currentSubject.cards.map((item) => (
             <Card key={item.id}>
@@ -55,7 +56,15 @@ export default function ClassroomFeed({ onBack }) {
                 <CardTitle>{item.title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="leading-relaxed">{item.content}</p>
+                {Array.isArray(item.content) ? (
+                  item.content.map((paragraph, index) => (
+                    <p key={index} className="leading-relaxed">
+                      {paragraph}
+                    </p>
+                  ))
+                ) : (
+                  <p className="leading-relaxed">{item.content}</p>
+                )}
               </CardContent>
             </Card>
           ))}
