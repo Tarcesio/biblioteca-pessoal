@@ -12,6 +12,7 @@ import LinksPage from '@/pages/LinksPage';
 import AboutPage from '@/pages/AboutPage';
 import PromptCreatorPage from '@/pages/PromptCreatorPage';
 import FoxPage from '@/pages/FoxPage';
+import { ClassroomPage } from '@/pages/ClassroomPage';
 import NotFoundPage from '@/pages/NotFoundPage';
 
 export default function App() {
@@ -30,6 +31,7 @@ export default function App() {
         <Route path="/links" element={<LinksPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/fox-quiz" element={<FoxPage />} />
+        <Route path="/classroom" element={<ClassroomPage />} />
 
         {/* Rota de fallback para páginas não encontradas (404) */}
         <Route path="*" element={<NotFoundPage />} />

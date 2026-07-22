@@ -44,6 +44,10 @@ export default function Header() {
                     label: "Quiz Raposas", 
                     action: () => navigate("/fox-quiz") 
                 },
+                { 
+                    label: "Classroom", 
+                    action: () => navigate("/classroom") 
+                }
             ],
         },
         {
