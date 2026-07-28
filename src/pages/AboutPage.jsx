@@ -9,11 +9,11 @@ export default function AboutPage() {
       <Card>
         <CardHeader>
           <Cpu className="text-emerald-400 shrink-0" size={24} />
-          <CardTitle className="!text-2xl sm:!text-3xl uppercase tracking-wide">
+          <CardTitle className="text-2xl! sm:text-3xl! uppercase tracking-wide">
             Sobre o Projeto Hub
           </CardTitle>
         </CardHeader>
-        <CardContent className="!space-y-4 text-base sm:text-lg">
+        <CardContent className="space-y-4! text-base sm:text-lg">
           <p className="leading-relaxed">
             Este Hub foi desenvolvido como uma solução centralizada para gerenciar ferramentas de produtividade, 
             estudos de Engenharia de Computação e projetos pessoais.
@@ -29,7 +29,7 @@ export default function AboutPage() {
       </Card>
 
       {/* 🟢 Bloco de Status do Sistema Corrigido para o Tema Esmeralda */}
-      <Card className="!p-4 bg-zinc-950/40">
+      <Card className="p-4! bg-zinc-950/40">
         <div className="flex items-center justify-between font-mono text-xs sm:text-sm w-full">
           <span className="text-zinc-400 font-medium tracking-wide">Status do Sistema:</span>
           <span className="text-emerald-400 font-bold bg-emerald-500/5 px-3 py-1 rounded-xl border border-emerald-500/20 drop-shadow-[0_0_4px_rgba(16,185,129,0.2)]">

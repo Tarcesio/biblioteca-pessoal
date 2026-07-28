@@ -10,6 +10,10 @@ Este ecossistema centraliza ferramentas de produtividade, laboratórios de engen
 *   **Feature-Based Architecture:** Módulos complexos e lógicas pesadas residem isolados dentro de suas respectivas pastas em `src/features/[nome-da-feature]/`.
 *   **Rotas Passa-Prato:** As páginas localizadas em `src/pages/` atuam apenas como conectores enxutos de rotas, importando e renderizando os componentes inteligentes de domínio.
 *   **Semântica HTML5 Estrita:** O contêiner mestre `src/components/Main.jsx` injeta a tag `<main>` global da aplicação. Nenhuma subpágina ou componente interno pode duplicar esta tag.
+*   **Sintaxe de Sobrescrita de Especificidade (Tailwind CSS):** Fica estritamente determinado o uso do modificador de importância pós-fixado (`classe!`) para resoluções de conflitos de especificidade em folhas de estilo utilitárias. A aplicação de prefixação com ponto de exclamação (`!classe`) é considerada padrão depreciado e fica proibida no ecossistema, garantindo compatibilidade com o compilador moderno e previsibilidade na cascata do CSS.
+    *   *Sintaxe Correta:* `text-2xl! sm:text-3xl! border-emerald-500!`
+    *   *Sintaxe Incorreta:* `!text-2xl sm:!text-3xl !border-emerald-500`
+
 
 ---
 
