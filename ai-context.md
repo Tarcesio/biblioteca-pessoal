@@ -1,36 +1,26 @@
-[CONTEXTO: HUB V1.3.0][PARADIGMA: MOBILE_FIRST; SRP; BAIXO_ACOPLAMENTO]
-[PATHS: src/=@/ (Proibido caminhos relativos longos como '../../')]
-[DIRETÓRIOS: src/pages/=Passa-Prato/Rotas_Enxutas; src/features/=Lógica_De_Negócio_Isolada]
-[SINTAXE_TAILWIND: Modificador de importância estritamente PÓS-FIXADO. Ex: classe! (fixed! bg-zinc-900!)]
-[DEPENDÊNCIAS_ATIVAS: react-router-dom; lucide-react; react-draggable; tailwindcss. Proibido novas libs]
+==========================================================================
+⚙️ DIRETRIZES DE MEMÓRIA INTERNA DA IA - HUB V1.3.0 (SANDBOX & FORMS)
+==========================================================================
 
-[REGRAS_SEMÂNTICAS_E_LAYOUT]
-1. Tag <main> é de uso exclusivo de src/components/Main.jsx. Nenhuma página ou subcomponente pode duplicá-la.
-2. Contêineres de cartões visuais reutilizáveis devem usar a estrutura base de <div> do componente mestre.
-3. Tags semânticas <fieldset> (Contêiner) e <legend> (Título) são restritas a formulários e agrupamentos lógicos de inputs/controles.
+[1. ENTENDIMENTO CONCEITUAL DAS DIRETIVAS DO PROMPT]
+- DIRETÓRIO PAGES: O sufixo '=Passa-Prato/Rotas_Enxutas' é um PARADIGMA DE DESIGN, não uma pasta física. Arquivos em 'src/pages/' devem conter apenas o invólucro mínimo da rota, importando o componente de inteligência direto de 'src/features/'.
+- EXCLUSIVIDADE DE TAGS: A tag <main> pertence unicamente a 'src/components/Main.jsx'. Nenhuma página, subcomponente ou feature pode duplicá-la.
 
-[CONTRATOS DE COMPONENTES ATIVOS (SINTAXE JAVASCRIPT PURA)]
-- Card, CardHeader, CardTitle, CardContent, CardRow (Estruturas base de <div> com faixa esmeralda e hover scale)
-- Button, Input (Variantes: default e study. Alvos de toque expandidos w-full mobile, py-2.5 no input)
-- Window (Modal fixo 92vw no mobile; flutuante arrastável react-draggable no desktop via handle .window-header)
-- App (Raiz global acoplando o Header); Main (Contêiner mestre do layout e injetor único da tag <main>)
+[2. CONTRATO DE INTERFACE: COMPONENTES DE CARD ANINHADOS]
+- UNIFICAÇÃO VISUAL: Proibido o uso de <div> genéricas com estilização manual de borda (border-zinc-800) ou textos de cabeçalho (h1, h2, p, span) flutuando soltos na estrutura da tela.
+- ANINHAMENTO PURISTA: Toda a interface da página (incluindo o cabeçalho global da tela) deve ser construída sob o ecossistema de Cards. Se um módulo contiver sub-blocos, utilize a composição de Card Mestre contendo sub-Cards em seu <CardContent>.
+- DINAMISMO ATÔMICO: O componente <Card> recebe a propriedade 'className' dinamicamente. Modificadores de animação comportamental (como o flash do Vanilla ou o pulso do React) devem ser injetados diretamente na casca do Card, erradicando wrappers redundantes (div-soup).
 
-[🚀 NOVA INFRAESTRUTURA DE COMPONENTES DE CONTROLE (PLANEJADOS PARA COMPOSIÇÃO DE FORMS)]
-- FormFieldSet ({ children, className, disabled }): Componente de agrupamento semântico <fieldset>. Permite congelar todos os botões/inputs internos instantaneamente usando a propriedade nativa 'disabled' para lógicas de Pause/Stop.
-- FormLegend ({ children, className }): Legenda superior semântica <legend> integrada de forma limpa à borda do fieldset.
-- ControlGroup ({ children, className }): Invólucro flexível horizontal para alinhar conjuntos de botões de controle de mídia e simulações.
-- PlayButton, PauseButton, StopButton ({ onClick, ativo, className }): Botões de ação especializados com cores, ícones e estados visuais ativos nativos pré-definidos do sistema.
-- RangeInput ({ label, min, max, value, onChange, className }): Slider de controle de física personalizado com altura de toque mobile otimizada e anéis de foco.
+[3. IDENTIDADE CROMÁTICA DO SISTEMA (VIBE VERDINHA)]
+- SOBRIEDADE DE CORES: O ecossistema do Hub opera sob a paleta estrita Esmeralda e Zinco. 
+- PROIBIÇÃO DE MATIZES EXTERNAS: Estados ativos de botões, contornos de foco ou toggles de alternância de abas não podem adotar cores como âmbar (bg-amber-600) ou azul, evitando estéticas alheias (estilo reprodutores de mídia/YouTube).
+- PADRÃO ATIVO: Para estados acionados, utilize o padrão esmeralda fosco do Hub:
+  `bg-emerald-600/10! text-emerald-400! border border-emerald-500/20 hover:bg-emerald-500/20`
 
-[🔍 ZONE DE AUDITORIA / INVESTIGAÇÃO DE DUPLICIDADE]
-- Arquivo src/components/PromptCreator.jsx vs Pasta src/features/prompt-creator/.
-- DIRETIVA: Proibido sugerir alterações, refatorações ou exclusões nessa feature até que o usuário cole as importações reais das páginas para rastrearmos quem está sendo ativado no sistema de rotas.
+[4. SEMÂNTICA DE FORMULÁRIOS VS BOTOES DE CONTROLE INTERATIVO]
+- ESCOPO DO FORMULÁRIO: Um elemento <Form> e seus <FormFieldSet> legítimos tratam estritamente do ciclo de vida de captura, validação e envio de dados (eventos de 'submit' e 'reset' em inputs/ranges).
+- CONTROLES DE SIMULAÇÃO: Botões de ação imperativa (Play/Pause) que alternam a visualização técnica (texto do código vs animação gráfica) devem operar fora do ciclo do formulário, alternando seus rótulos textuais de forma dinâmica ("Play" quando oculto, "Ver Código" quando ativo) para garantir feedback preciso de UX.
 
-[📝 BACKLOG DE TAREFAS PRIORIZADAS]
-1. COMPONENTES_FORM_UI (Prioridade Máxima): Criar e padronizar na pasta src/components/ui/ a nova biblioteca semântica de formulários e painéis de controle (FormFieldSet, FormLegend, ControlGroup, botões de ação e range), seguindo a mesma filosofia do Card.jsx, blindando o tema antes das refatorações de páginas.
-2. REFAT_ROTAS (Peso Crítico): Resolver concorrência de caminhos entre App.jsx e Main.jsx. Unificar todas as páginas de projetos dentro do bloco <Routes> do Main.jsx para que herdem corretamente o contêiner <main> e os paddings.
-3. LAB_CÓDIGO (SANDBOX_LITERAL): Painel didático de migração para expor código Vanilla JS lado a lado com React. Possui botão Play/Pause controlando ciclo de vida (montando/desmontando nó no DOM) e Canvas Sandbox que executa física de arrasto (offset) utilizando os novos componentes FormFieldSet e FormLegend.
-
-[PROTOCOLO DE ATUAÇÃO DA IA]
-- Postura: Tech Lead Sênior e Professor. Focar na física do código (ciclo de vida, renderização e memória).
-- Modo de Resposta: Proibido gerar códigos ou suposições sem o escaneamento real do arquivo de origem. Priorizar texto e análises de trade-offs. Se código for solicitado, submeter estritamente UM ARQUIVO COMPLETO por turno e aguardar aprovação.
+[5. PROTOCOLO DE REQUISIÇÃO DE CÓDIGO]
+- ESCANEAMENTO OBRIGATÓRIO: Proibido gerar códigos ou refatorações baseadas em suposições sem a colagem prévia do arquivo real pelo usuário.
+- DENSIDADE E GRANULARIDADE: Submeter estritamente UM ARQUIVO COMPLETO por turno para evitar truncamento de caracteres e estouros de contexto nas respostas.
