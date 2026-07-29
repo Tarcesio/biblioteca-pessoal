@@ -50,7 +50,7 @@ export default function Header() {
                 },
                 {
                     label: "Sandbox",
-                    action: () => navigate("/teste-controles")
+                    action: () => navigate("/sandbox")
                 }
             ],
         },
