@@ -47,6 +47,10 @@ export default function Header() {
                 { 
                     label: "Classroom", 
                     action: () => navigate("/classroom") 
+                },
+                {
+                    label: "Sandbox",
+                    action: () => navigate("/teste-controles")
                 }
             ],
         },
