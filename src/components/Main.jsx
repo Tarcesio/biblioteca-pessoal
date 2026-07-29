@@ -13,9 +13,7 @@ import PromptCreatorPage from '@/pages/PromptCreatorPage';
 import FoxPage from '@/pages/FoxPage';
 import { ClassroomPage } from '@/pages/ClassroomPage';
 import NotFoundPage from '@/pages/NotFoundPage';
-
-// Nova Rota da Infraestrutura de Controle Semântica
-import FormTestPage from '@/pages/FormTestPage'
+import SandboxPage from '@/pages/SandboxPage'
 
 export default function Main() {
   return (
@@ -36,9 +34,7 @@ export default function Main() {
         <Route path="/interactive-colors" element={<InteractiveColorsPage />} />
         <Route path="/fox-quiz" element={<FoxPage />} />
         <Route path="/classroom" element={<ClassroomPage />} />
-
-        {/* Sandbox de Validação dos Novos Componentes de Controle */}
-        <Route path="/teste-controles" element={<FormTestPage />} />
+        <Route path="/sandbox" element={<SandboxPage />} />
         
         {/* Rota de Fallback Segura (404) dentro do escopo do Layout Principal */}
         <Route path="*" element={<NotFoundPage />} />
